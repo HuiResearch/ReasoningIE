@@ -1,0 +1,44 @@
+model_name_or_path: outputs/qwen3-1.7b-sft
+torch_dtype: bfloat16
+attn_implementation: flash_attention_2
+
+# ReasoningNER arguments
+data_path: data/grpo.json
+data_cache_path: data-cache
+add_source: false
+template: qwen
+
+output_dir: "outputs/qwen3-1.7b-grpo"
+max_prompt_length: 2048
+max_completion_length: 4096
+per_device_train_batch_size: 16
+gradient_accumulation_steps: 4
+learning_rate: 1.0e-6
+weight_decay: 0.0
+max_grad_norm: 1.0
+num_train_epochs: 1
+epsilon: 0.2
+epsilon_high: 0.28
+num_iterations: 4
+lr_scheduler_type: "cosine"
+loss_type: "dr_grpo"
+warmup_ratio: 0.1
+logging_steps: 1
+save_strategy: "epoch"
+save_total_limit: 1
+seed: 42
+bf16: true
+gradient_checkpointing: true
+gradient_checkpointing_kwargs:
+  use_reentrant: false
+use_vllm: true
+vllm_server_host: "127.0.0.1"
+vllm_server_port: 5407
+beta: 0.04
+temperature: 0.9
+num_generations: 16
+report_to: "swanlab"
+log_completions: false
+reward_weights:
+  - 10
+  - 1

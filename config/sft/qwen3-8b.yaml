@@ -1,0 +1,39 @@
+# Config for 1 node of 8 x A800 (80GB)
+# Model arguments
+model_name_or_path: checkpoints/Qwen3-8B-Base
+torch_dtype: bfloat16
+attn_implementation: flash_attention_2
+
+# ReasoningNER arguments
+data_path: data/NER-CoT.json
+data_cache_path: data-cache
+add_source: true
+add_cot: true
+template: qwen
+preprocess_workers: 8
+
+# SFT trainer config
+output_dir: outputs/qwen3-8B-sft
+bf16: true
+per_device_eval_batch_size: 1
+per_device_train_batch_size: 16
+padding_free: true
+gradient_accumulation_steps: 2
+gradient_checkpointing: true
+gradient_checkpointing_kwargs:
+  use_reentrant: false
+learning_rate: 2.0e-05
+log_level: info
+logging_steps: 1
+logging_strategy: steps
+save_strategy: epoch
+save_total_limit: 1
+lr_scheduler_type: cosine
+max_grad_norm: 1.0
+max_length: 8192
+num_train_epochs: 5
+overwrite_output_dir: true
+report_to: "none"
+seed: 42
+use_liger_kernel: true
+warmup_ratio: 0.03
