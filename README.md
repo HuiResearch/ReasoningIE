@@ -1,6 +1,6 @@
 # ReasoningNER: A Reasoning Paradigm for Named Entity Recognition
 
-This repository is the official implementation of the paper "**A Reasoning Paradigm for Named Entity Recognition**".
+This repository is the official implementation of the paper "**A Reasoning Paradigm for Named Entity Recognition (accepted by AAAI 2026)**".
 
 In this project, we propose a novel reasoning paradigm for Named Entity Recognition (NER) that shifts the modeling
 approach from traditional implicit pattern matching to an explicit, verifiable reasoning process.
