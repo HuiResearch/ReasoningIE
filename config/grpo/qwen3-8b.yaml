@@ -3,7 +3,7 @@ torch_dtype: bfloat16
 attn_implementation: flash_attention_2
 
 # ReasoningNER arguments
-data_path: data/grpo.json
+data_path: data/trl-grpo/train.json
 data_cache_path: data-cache
 add_source: false
 template: qwen

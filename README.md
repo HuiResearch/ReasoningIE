@@ -98,7 +98,7 @@ After completing CoT tuning, use the RE script (`grpo.py`) to further optimize t
 ```bash
 python sample_grpo.py \
   --base_path IE_INSTRUCTION/NER \
-  --output_file data/grpo.json \
+  --output_path data/trl-grpo \
   --num_samples 5000 \
   --max_count 10000 \
   --shuffle
@@ -124,6 +124,32 @@ CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6 accelerate launch \
     grpo.py \
     --config config/grpo/qwen3-8b.yaml
 ```
+
+-----
+
+### 💡 [Update] Alternative RE using verl
+
+> We later found that training for more epochs using the **verl** framework can further improve performance. Therefore, we have updated the code to include the usage of `verl`.
+
+1.  **Sample `verl` training data:**
+
+    ```bash
+    python sample_grpo.py --base_path IE_INSTRUCTION/NER --output_path data/verl --save_to_verl
+    ```
+
+2.  **`verl` training script:**
+
+    ```bash
+    bash verl-grpo.sh
+    ```
+
+    *You can modify the parameter configurations in `grpo.sh` as needed.*
+
+3.  **Weight Conversion:**
+    To convert the `verl`-trained weights into Hugging Face format, you can use the official script:
+    [https://github.com/volcengine/verl/blob/main/scripts/legacy_model_merger.py](https://github.com/volcengine/verl/blob/main/scripts/legacy_model_merger.py)
+
+-----
 
 ### Evaluation
 
