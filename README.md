@@ -143,7 +143,7 @@ CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6 accelerate launch \
     bash verl-grpo.sh
     ```
 
-    *You can modify the parameter configurations in `grpo.sh` as needed.*
+    *You can modify the parameter configurations in `verl-grpo.sh` as needed.*
 
 3.  **Weight Conversion:**
     To convert the `verl`-trained weights into Hugging Face format, you can use the official script:
