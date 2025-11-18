@@ -160,3 +160,17 @@ python evaluate.py \
   --result_file eval_result.json \
   --template qwen3
 ```
+
+### Cite
+
+```
+@misc{huang2025reasoningparadigmnamedentity,
+      title={A Reasoning Paradigm for Named Entity Recognition}, 
+      author={Hui Huang and Yanping Chen and Ruizhang Huang and Chuan Lin and Yongbin Qin},
+      year={2025},
+      eprint={2511.11978},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2511.11978}, 
+}
+```
